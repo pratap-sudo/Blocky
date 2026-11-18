@@ -103,19 +103,19 @@ export const ChallengesModal: React.FC<ChallengesModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[92vh] sm:max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         {/* Header */}
-        <div className="h-14 px-6 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-900/60">
-          <div className="flex items-center space-x-2.5">
+        <div className="h-14 px-3 sm:px-6 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-900/60">
+          <div className="flex items-center space-x-2 sm:space-x-2.5">
             <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
               <Trophy className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
-                Coding Challenges &amp; Auto-Grader
-                <span className="text-[11px] font-semibold text-amber-400 px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
-                  {completedIds.length} / {CODING_CHALLENGES.length} Completed
+              <h2 className="text-xs sm:text-base font-bold text-white flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                <span>Challenges & Auto-Grader</span>
+                <span className="text-[10px] font-semibold text-amber-400 px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
+                  {completedIds.length} / {CODING_CHALLENGES.length}
                 </span>
               </h2>
             </div>
@@ -132,7 +132,7 @@ export const ChallengesModal: React.FC<ChallengesModalProps> = ({
         {/* Content split */}
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
           {/* Challenges List Sidebar */}
-          <div className="w-full md:w-72 bg-slate-950/60 border-r border-slate-800 overflow-y-auto p-3 space-y-1.5 shrink-0">
+          <div className="w-full md:w-72 max-h-36 md:max-h-none bg-slate-950/60 border-b md:border-b-0 md:border-r border-slate-800 overflow-y-auto p-2 sm:p-3 space-y-1.5 shrink-0">
             {CODING_CHALLENGES.map((ch) => {
               const isCompleted = completedIds.includes(ch.id);
               const isSelected = selectedChallenge.id === ch.id;
@@ -145,13 +145,13 @@ export const ChallengesModal: React.FC<ChallengesModalProps> = ({
                     setShowHint(false);
                     setTestResults(null);
                   }}
-                  className={`w-full p-2.5 rounded-xl text-left transition flex items-center justify-between ${
+                  className={`w-full p-2 sm:p-2.5 rounded-xl text-left transition flex items-center justify-between ${
                     isSelected
                       ? 'bg-blue-600 text-white shadow-md'
                       : 'hover:bg-slate-800 text-slate-300'
                   }`}
                 >
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 truncate">
                     {isCompleted ? (
                       <CheckCircle2
                         className={`w-4 h-4 shrink-0 ${isSelected ? 'text-white' : 'text-emerald-400'}`}
@@ -161,11 +161,11 @@ export const ChallengesModal: React.FC<ChallengesModalProps> = ({
                         className={`w-4 h-4 shrink-0 ${isSelected ? 'text-white' : 'text-slate-500'}`}
                       />
                     )}
-                    <span className="text-xs font-semibold">{ch.title}</span>
+                    <span className="text-xs font-semibold truncate">{ch.title}</span>
                   </div>
 
                   <span
-                    className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase ${
+                    className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase shrink-0 ml-1 ${
                       ch.difficulty === 'Easy'
                         ? 'bg-emerald-500/20 text-emerald-300'
                         : ch.difficulty === 'Medium'
@@ -181,7 +181,7 @@ export const ChallengesModal: React.FC<ChallengesModalProps> = ({
           </div>
 
           {/* Active Challenge Details & Test Runner */}
-          <div className="flex-1 overflow-y-auto p-6 flex flex-col justify-between space-y-6">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col justify-between space-y-4 sm:space-y-6">
             <div className="space-y-4">
               <div className="flex items-start justify-between">
                 <div>

@@ -113,3 +113,28 @@
   stroke-width: 4px !important;
   filter: drop-shadow(0 0 8px #f59e0b) !important;
 }
+
+/* Mobile & Touch Adaptations */
+@media (max-width: 768px) {
+  .blocklyTreeRow {
+    height: 34px !important;
+    line-height: 34px !important;
+    padding: 0 8px !important;
+    margin: 2px 3px !important;
+    font-size: 11px !important;
+  }
+
+  .blocklyToolboxDiv {
+    min-width: 90px !important;
+  }
+
+  /* Prevent browser bounce and enable smooth mobile panning */
+  button, input, select {
+    touch-action: manipulation;
+  }
+}
+
+/* Safe area insets for iOS devices with notch / dynamic island */
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+}

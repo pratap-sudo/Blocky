@@ -13,7 +13,7 @@ export const LearningPanel: React.FC<LearningPanelProps> = ({ selectedBlockType,
     : undefined;
 
   return (
-    <aside className="w-80 md:w-96 h-full bg-slate-900 border-l border-slate-800 flex flex-col select-none overflow-hidden shrink-0">
+    <aside className="w-full lg:w-80 xl:w-96 h-full bg-slate-900 border-l border-slate-800 flex flex-col select-none overflow-hidden shrink-0">
       {/* Panel Header */}
       <div className="h-10 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between px-3.5 shrink-0">
         <div className="flex items-center space-x-2">

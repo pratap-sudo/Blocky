@@ -217,58 +217,58 @@ export const FlowchartModal: React.FC<FlowchartModalProps> = ({ isOpen, onClose,
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-3xl max-h-[92vh] sm:max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         {/* Header */}
-        <div className="h-14 px-5 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-900/60">
-          <div className="flex items-center space-x-2.5">
+        <div className="h-14 px-3 sm:px-5 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-900/60">
+          <div className="flex items-center space-x-2 sm:space-x-2.5">
             <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
               <GitFork className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-sm font-bold text-white flex items-center gap-2">
-                Full Program Flowchart
-                <span className="text-[10px] font-medium text-slate-400 px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700">
-                  {nodes.length} steps
+              <h2 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5 sm:gap-2">
+                <span>Flowchart</span>
+                <span className="text-[10px] font-medium text-slate-400 px-1.5 py-0.5 rounded-full bg-slate-800 border border-slate-700">
+                  {nodes.length}
                 </span>
               </h2>
             </div>
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <button
               onClick={() => setZoom((z) => Math.min(1.8, z + 0.15))}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+              className="p-1 sm:p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
               title="Zoom In"
             >
               <ZoomIn className="w-4 h-4" />
             </button>
             <button
               onClick={() => setZoom((z) => Math.max(0.5, z - 0.15))}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+              className="p-1 sm:p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
               title="Zoom Out"
             >
               <ZoomOut className="w-4 h-4" />
             </button>
             <button
               onClick={() => setZoom(1)}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+              className="p-1 sm:p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition hidden sm:block"
               title="Reset Zoom"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
             <button
               onClick={handleDownloadSVG}
-              className="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition"
+              className="flex items-center space-x-1 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition"
               title="Download as SVG Image"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Save SVG</span>
+              <span className="hidden sm:inline">Save SVG</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition"
+              className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition"
             >
               <X className="w-5 h-5" />
             </button>

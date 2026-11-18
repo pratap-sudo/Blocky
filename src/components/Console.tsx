@@ -66,26 +66,26 @@ export const Console: React.FC<ConsoleProps> = ({
           {/* Tabs */}
           <button
             onClick={() => setActiveTab('console')}
-            className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-md text-xs font-semibold tracking-wide uppercase transition ${
+            className={`flex items-center space-x-1.5 px-2 sm:px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-semibold tracking-wide uppercase transition ${
               activeTab === 'console'
                 ? 'bg-slate-800 text-white border border-slate-700/80 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <Terminal className="w-3.5 h-3.5" />
-            <span>Terminal Console</span>
+            <span>Terminal<span className="hidden sm:inline"> Console</span></span>
           </button>
 
           <button
             onClick={() => setActiveTab('memory')}
-            className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-md text-xs font-semibold tracking-wide uppercase transition ${
+            className={`flex items-center space-x-1.5 px-2 sm:px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-semibold tracking-wide uppercase transition ${
               activeTab === 'memory'
                 ? 'bg-slate-800 text-amber-300 border border-slate-700/80 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <Cpu className="w-3.5 h-3.5" />
-            <span>Memory Watch (RAM)</span>
+            <span>Memory<span className="hidden sm:inline"> Watch</span></span>
             {varCount > 0 && (
               <span className="ml-1 px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold">
                 {varCount}

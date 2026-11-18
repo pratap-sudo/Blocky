@@ -57,6 +57,7 @@ const lightTheme = Blockly.Theme.defineTheme('customLight', {
 
 export interface BlocklyWorkspaceHandle {
   getWorkspace: () => Blockly.WorkspaceSvg | null;
+  resize: () => void;
   undo: () => void;
   redo: () => void;
   canUndo: () => boolean;
@@ -82,6 +83,11 @@ export const BlocklyWorkspace = forwardRef<BlocklyWorkspaceHandle, BlocklyWorksp
 
     useImperativeHandle(ref, () => ({
       getWorkspace: () => workspaceRef.current,
+      resize: () => {
+        if (workspaceRef.current) {
+          Blockly.svgResize(workspaceRef.current);
+        }
+      },
       undo: () => {
         workspaceRef.current?.undo(false);
       },
